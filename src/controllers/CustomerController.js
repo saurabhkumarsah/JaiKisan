@@ -1,10 +1,15 @@
 const customerModel = require('../models/CustomerModel.js')
+const { v4: uuidv4 } = require('uuid');
+const validator = require("email-validator");
+
+
 
 const createCustomer = async (req, res) => {
     try {
 
         const data = req.body
-        const { firstName, lastName, mobileNumber, DOB, emailId, address, customerId, status } = req.body
+        let { firstName, lastName, mobileNumber, DOB, emailId, address, status } = req.body
+        let isValidEmail = validator.validate(emailId);
 
         if (!firstName) return res.status(404).send({ Status: false, Message: "Please, Provide Your First Name" })
         if (!lastName) return res.status(404).send({ Status: false, Message: "Please, Provide Your Last Name" })
@@ -12,10 +17,11 @@ const createCustomer = async (req, res) => {
         if (mobileNumber.length !== 10) return res.status(404).send({ Status: false, Message: "Please, Provide valid mobile number" })
         if (!DOB) return res.status(404).send({ Status: false, Message: "Please, Provide Your Date of Birth" })
         // if (DOB != "0000-00-00") return res.status(404).send({ Status: false, Message: "Please, Provide Your Date of Birth in YYYY-MM-DD format" })
-
         if (!emailId) return res.status(404).send({ Status: false, Message: "Please, Provide Your Email Id" })
+        if (!isValidEmail) return res.status(404).send({ Status: false, Message: "Please, Provide valid Email Id" })
         if (!address) return res.status(404).send({ Status: false, Message: "Please, Provide Your Address" })
-        if (!customerId) return res.status(404).send({ Status: false, Message: "Please, Provide Your Date of Birth" })
+        data.customerId = uuidv4().toString()
+
         if (!status) return res.status(404).send({ Status: false, Message: "Please, Provide Status" })
         if ((status !== "ACTIVE") && (status !== "INACTIVE")) return res.status(404).send({ Status: false, Message: "Please, write status ACTIVE or INACTIVE" })
 
