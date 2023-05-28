@@ -15,7 +15,7 @@ const cardSchema = new Schema(
             default: "ACTIVE"
         },
         vision: String,
-        CustomerID: {
+        customerId: {
             type: String,
             ref: "CustomerModel"
         },
@@ -23,7 +23,7 @@ const cardSchema = new Schema(
             type: Boolean,
             default: false
         }
-    }, {timestamps: true}
+    }, { timestamps: true }
 )
 
 module.exports = model("Card", cardSchema)
