@@ -4,9 +4,9 @@ const mongoose = require('mongoose')
 const url = 'mongodb+srv://saurabhsahofficial:21mnzpvnAgVXlrm5@cluster0.gmkmd42.mongodb.net/saurabh-Jaikisan'
 const routerCard = require("./routes/CardRouter")
 const routerCustomer = require("./routes/CustomerRouter")
-const db = require("./services/DB")
 
 const app = express()
+app.use(express.json())
 app.use('/', routerCard)
 app.use('/', routerCustomer)
 

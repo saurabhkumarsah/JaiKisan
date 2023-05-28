@@ -1,7 +1,7 @@
-const express = require("mongoose")
+const mongoose = require("mongoose")
 const { Schema, model } = mongoose
 
-const cardSchema = Schema(
+const cardSchema = new Schema(
     {
         cardNumber: String,
         cardType: {
@@ -23,7 +23,7 @@ const cardSchema = Schema(
             type: Boolean,
             default: false
         }
-    }, { timestamp: true }
+    }, {timestamps: true}
 )
 
 module.exports = model("Card", cardSchema)
