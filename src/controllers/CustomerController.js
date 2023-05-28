@@ -33,6 +33,7 @@ const getCustomerList = async (req, res) => {
     try {
 
         const data = await customerModel.find({ status: "ACTIVE" })
+        if (data.length === 0) return res.status(404).send({ Status: false, Message: "Not found any active customer" })
         res.status(200).send({ Status: true, Data: data })
 
     } catch (error) {

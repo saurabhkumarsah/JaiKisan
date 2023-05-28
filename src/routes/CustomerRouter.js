@@ -6,7 +6,7 @@ const { createCustomer, getCustomerList, deleteCustomer } = controller
 
 // Router for testing
 router.get('/test1', (req, res) => {
-    res.send({ status: true, message: "Yes Successfull" })
+    res.send({ status: true, message: "Yes, Successfull" })
 })
 // router.delete('/delete', async (req,res) =>{
 //    await CustomerModel.deleteMany()
