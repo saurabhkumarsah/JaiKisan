@@ -1,4 +1,4 @@
-# Customer and Card Management API
+# Backend Project - Customer and Card Management
 
 This project provides a backend API for managing customers and their associated cards. It is built using Node.js with the following technologies: nodemon, express, UUID, moment, dotenv, and email-validator.
 
@@ -29,6 +29,7 @@ Create a `.env` file in the root directory and provide the following variables:
 
 ```
 PORT=3000
+MONGODB_URI=<mongodb-connection-uri>
 ```
 
 Feel free to modify the `PORT` value as per your preference.
@@ -38,8 +39,7 @@ Feel free to modify the `PORT` value as per your preference.
 ```
 npm start
 ```
-
-This will start the server on the specified port.
+The server will start listening on `http://localhost:3000` by default.
 
 
 
@@ -90,13 +90,21 @@ This will start the server on the specified port.
   - Method: POST
   - Endpoint: `/customers`
   - Request Body: Provide the following fields in the request body to create a new customer:
-    - firstName (string)
-    - lastName (string)
-    - mobileNumber (string)
-    - DOB (date)
-    - emailID (string)
-    - address (string)
+```json
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "mobileNumber": "1234567890",
+  "DOB": "1990-01-01",
+  "emailID": "john.doe@example.com",
+  "address": "123 Main St, City",
+  "customerID": "UUID",
+  "status": "ACTIVE"
+}
+```
   - Response: Returns the created customer object.
+
+
 
 ### Cards
 
@@ -111,11 +119,30 @@ This will start the server on the specified port.
   - Method: POST
   - Endpoint: `/cards`
   - Request Body: Provide the following fields in the request body to create a new card:
-    - cardType (string)
-    - customerName (string)
-    - vision (string)
-    - customerID (string)
+```json
+{
+  "cardNumber": "C001",
+  "cardType": "REGULAR",
+  "customerName": "John Doe",
+  "status": "ACTIVE",
+  "vision": "Card Vision",
+  "customerID": "UUID"
+}
+```
   - Response: Returns the created card object.
+
+
+  
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB
+- UUID
+- Moment
+- Dotenv
+- Email-validator
+
 
 ## Conclusion
 
