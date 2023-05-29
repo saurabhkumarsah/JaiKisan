@@ -1,7 +1,10 @@
 const express = require("express")
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
+dotenv.config()
+const {URI, PORT} = process.env
 
-const url = 'mongodb+srv://saurabhsahofficial:21mnzpvnAgVXlrm5@cluster0.gmkmd42.mongodb.net/saurabh-Jaikisan'
+
 const routerCard = require("./routes/CardRouter")
 const routerCustomer = require("./routes/CustomerRouter")
 
@@ -10,11 +13,11 @@ app.use(express.json())
 app.use('/', routerCard)
 app.use('/', routerCustomer)
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log("Server start on PORT: ", (process.env.PORT || 3000))
+app.listen(PORT, () => {
+    console.log("Server start on PORT: ", (PORT))
 })
 
-mongoose.connect(url)
+mongoose.connect(URI)
     .then(() => console.log("Database is connected...."))
     .catch((error) => console.log(error.message))
 
