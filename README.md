@@ -1,38 +1,126 @@
-# JaiKisan_FunctionUp
-Problem Statement:
-Create two API’s which can perform the specified CRUD operations.The project structure should
-have models, middlewares, controllers and services. Write MongoDB queries to fetch, update,
-add or delete data from the specified collections. You can assume that the collections already
-exist in the database and just define the project structure.
+# Customer and Card Management API
 
-Customer API
-1. Get all customers List with status ACTIVE [GET]
-2. Delete customer. [DELETE]
-3. Create new customer [POST]
+This project provides a backend API for managing customers and their associated cards. It is built using Node.js with the following technologies: nodemon, express, UUID, moment, dotenv, and email-validator.
 
-Card API
-1. Get all Card List[GET]
-2. Create new card [POST]
+## Prerequisites
 
-Customer collection field:
-Field Type Description
-firstName string
-lastName string
-mobileNumber string 10 digits long
-DOB date
-emailID string abc@xyz.com
-address string
-customerID string UUID
-status string ACTIVE / INACTIVE
+Before running this project, ensure that you have the following installed:
 
-Card collection field:
+- Node.js (v12 or higher)
 
-Field Type Description
-cardNumber string Auto_increment e.g: C001
-cardType String [REGULAR/SPECIAL]
-customerName string
-status string [ACTIVE/INACTIVE] Default: ACTIVE
-vision string
-customerID string Reference from customer
+## Getting Started
 
-table
+1. Clone the repository:
+
+```
+git clone <repository_url>
+```
+
+2. Install dependencies:
+
+```
+cd JaiKisan_FunctionUp
+npm install
+```
+
+3. Set up environment variables:
+
+Create a `.env` file in the root directory and provide the following variables:
+
+```
+PORT=3000
+```
+
+Feel free to modify the `PORT` value as per your preference.
+
+4. Start the server:
+
+```
+npm start
+```
+
+This will start the server on the specified port.
+
+
+
+## Customer Model
+
+| Field        | Type   | Description                  |
+| ------------ | ------ | ---------------------------- |
+| firstName    | string | First name of the customer   |
+| lastName     | string | Last name of the customer    |
+| mobileNumber | string | 10-digit mobile number       |
+| DOB          | date   | Date of birth                |
+| emailID      | string | Email address of the customer|
+| address      | string | Customer's address           |
+| customerID   | string | UUID                         |
+| status       | string | Customer status (ACTIVE/INACTIVE) |
+
+## Card Model
+
+| Field        | Type   | Description                          |
+| ------------ | ------ | ------------------------------------ |
+| cardNumber   | string | Automatically generated card number  |
+| cardType     | string | Card type (REGULAR/SPECIAL)           |
+| customerName | string | Name of the customer associated      |
+| status       | string | Card status (ACTIVE/INACTIVE)         |
+| vision       | string | Vision description                    |
+| customerID   | string | Reference to the associated customer  |
+
+
+## API Endpoints
+
+### Customers
+
+- **Get all customers with status ACTIVE**
+
+  - Method: GET
+  - Endpoint: `/customers`
+  - Response: Returns a list of all customers with status set to ACTIVE.
+
+- **Delete customer**
+
+  - Method: DELETE
+  - Endpoint: `/customers/:customerId`
+  - Request: Specify the `customerId` as a path parameter to delete the corresponding customer.
+  - Response: Returns a success message if the customer is deleted successfully.
+
+- **Create new customer**
+
+  - Method: POST
+  - Endpoint: `/customers`
+  - Request Body: Provide the following fields in the request body to create a new customer:
+    - firstName (string)
+    - lastName (string)
+    - mobileNumber (string)
+    - DOB (date)
+    - emailID (string)
+    - address (string)
+  - Response: Returns the created customer object.
+
+### Cards
+
+- **Get all cards**
+
+  - Method: GET
+  - Endpoint: `/cards`
+  - Response: Returns a list of all cards.
+
+- **Create new card**
+
+  - Method: POST
+  - Endpoint: `/cards`
+  - Request Body: Provide the following fields in the request body to create a new card:
+    - cardType (string)
+    - customerName (string)
+    - vision (string)
+    - customerID (string)
+  - Response: Returns the created card object.
+
+## Conclusion
+
+This project provides a basic API for managing customers and their associated cards. Feel free to explore the endpoints and modify the code to suit your specific requirements. For detailed information about each API endpoint, refer to the respective section in this README.
+
+If you have any questions or need further assistance, please contact [saurabhsahofficial@gamil.com].
+
+Happy coding!

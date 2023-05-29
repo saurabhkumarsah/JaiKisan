@@ -3,7 +3,9 @@ const { Schema, model } = mongoose
 
 const cardSchema = new Schema(
     {
-        cardNumber: String,
+        cardNumber: {
+            type: String
+        },
         cardType: {
             type: String,
             enum: ["REGULAR", "SPECIAL"]
