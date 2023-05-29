@@ -90,18 +90,18 @@ The server will start listening on `http://localhost:3000` by default.
   - Method: POST
   - Endpoint: `/customers`
   - Request Body: Provide the following fields in the request body to create a new customer:
-```json
-{
-  "firstName": "John",
-  "lastName": "Doe",
-  "mobileNumber": "1234567890",
-  "DOB": "1990-01-01",
-  "emailID": "john.doe@example.com",
-  "address": "123 Main St, City",
-  "customerID": "UUID",
-  "status": "ACTIVE"
-}
-```
+    ```json
+    {
+    "firstName": "John",
+    "lastName": "Doe",
+    "mobileNumber": "1234567890",
+    "DOB": "1990-01-01",
+    "emailID": "john.doe@example.com",
+    "address": "123 Main St, City",
+    "customerID": "UUID",
+    "status": "ACTIVE"
+    }
+    ```
   - Response: Returns the created customer object.
 
 
@@ -119,16 +119,15 @@ The server will start listening on `http://localhost:3000` by default.
   - Method: POST
   - Endpoint: `/cards`
   - Request Body: Provide the following fields in the request body to create a new card:
-```json
-{
-  "cardNumber": "C001",
-  "cardType": "REGULAR",
-  "customerName": "John Doe",
-  "status": "ACTIVE",
-  "vision": "Card Vision",
-  "customerID": "UUID"
-}
-```
+    ```json
+    {
+    "cardType": "REGULAR",
+    "customerName": "John Doe",
+    "status": "ACTIVE",
+    "vision": "Card Vision",
+    "customerID": "UUID"
+    }
+    ```
   - Response: Returns the created card object.
 
 

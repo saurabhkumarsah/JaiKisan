@@ -19,7 +19,7 @@ const createCard = async (req, res) => {
             data.cardNumber = incrementedString
         }
         // ----------------------------------------------------------------------------------------------------------------------------------------------
-        if (!cardNumber) return res.status(404).send({ Status: false, Message: "Please, Provide Card Number" })
+        if (!data.cardNumber) return res.status(404).send({ Status: false, Message: "Please, Provide Card Number" })
         if (cardType !== "REGULAR" && cardType !== "SPECIAL") return res.status(404).send({ Status: false, Message: "Please, write Card Type REGULAR or SPECIAL" })
         if (!customerNumber) return res.status(404).send({ Status: false, Message: "Please, Provide Customer Number" })
         if (status !== "ACTIVE" && status !== "INACTIVE" && status !== undefined) return res.status(404).send({ Status: false, Message: "Please, write status ACTIVE or INACTIVE" })
