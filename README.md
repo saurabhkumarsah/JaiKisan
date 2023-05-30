@@ -2,6 +2,8 @@
 
 This project provides a backend API for managing customers and their associated cards. It is built using Node.js with the following technologies: nodemon, express, UUID, moment, dotenv, and email-validator.
 
+## Deployed Link Glitch >> https://abrasive-fabulous-pheasant.glitch.me/
+
 ## Prerequisites
 
 Before running this project, ensure that you have the following installed:
