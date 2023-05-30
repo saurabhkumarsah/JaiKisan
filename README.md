@@ -45,6 +45,7 @@ The server will start listening on `http://localhost:3000` by default.
 
 ## Customer Model
 
+--------------------------------------------------------
 | Field        | Type   | Description                  |
 | ------------ | ------ | ---------------------------- |
 | firstName    | string | First name of the customer   |
@@ -55,17 +56,19 @@ The server will start listening on `http://localhost:3000` by default.
 | address      | string | Customer's address           |
 | customerID   | string | UUID                         |
 | status       | string | Customer status (ACTIVE/INACTIVE) |
+-------------------------------------------------------------
 
 ## Card Model
-
+----------------------------------------------------------------
 | Field        | Type   | Description                          |
 | ------------ | ------ | ------------------------------------ |
-| cardNumber   | string | Automatically generated card number  |
-| cardType     | string | Card type (REGULAR/SPECIAL)           |
+| cardNumber   | string | Automatically increase card number   |
+| cardType     | string | Card type (REGULAR/SPECIAL)          |
 | customerName | string | Name of the customer associated      |
-| status       | string | Card status (ACTIVE/INACTIVE)         |
-| vision       | string | Vision description                    |
-| customerID   | string | Reference to the associated customer  |
+| status       | string | Card status (ACTIVE/INACTIVE)        |
+| vision       | string | Vision description                   |
+| customerID   | string | Reference to the associated customer |
+----------------------------------------------------------------
 
 
 ## API Endpoints
@@ -90,6 +93,7 @@ The server will start listening on `http://localhost:3000` by default.
   - Method: POST
   - Endpoint: `/customers`
   - Request Body: Provide the following fields in the request body to create a new customer:
+
     ```json
     {
     "firstName": "John",
