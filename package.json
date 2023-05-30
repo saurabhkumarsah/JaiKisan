@@ -1,0 +1,23 @@
+{
+  "name": "jaikisan",
+  "version": "1.0.0",
+  "description": "Create two API's perform some specified CURD operations.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0 <17.0.0"
+  },
+  "author": "Saurabh Sah",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "email-validator": "^2.0.4",
+    "express": "^4.18.2",
+    "moment": "^2.29.4",
+    "mongoose": "^7.2.1",
+    "uuid": "^9.0.0"
+  }
+}
